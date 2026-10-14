@@ -41,4 +41,11 @@ public class Section extends Element {
         System.out.println(this.toString());
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+        for (Element child : elements) {
+            child.accept(visitor);
+        }
+    }
 }

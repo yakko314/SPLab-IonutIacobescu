@@ -5,4 +5,9 @@ public class Table extends Element {
     public void print() {
 
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

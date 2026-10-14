@@ -12,4 +12,8 @@ public abstract class Element {
     public Element get(int index) {
         throw new UnsupportedOperationException();
     }
+
+    public void accept (Visitor v){
+        throw new UnsupportedOperationException();
+    }
 }
