@@ -52,4 +52,11 @@ public class Book {
     public void print(){
         System.out.println(this.toString());
     }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+        for (Element child : elements) {
+            child.accept(visitor);
+        }
+    }
 }

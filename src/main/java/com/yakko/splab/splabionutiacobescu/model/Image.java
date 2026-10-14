@@ -14,4 +14,9 @@ public class Image extends Element {
     public void print() {
         System.out.println(this.toString());
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

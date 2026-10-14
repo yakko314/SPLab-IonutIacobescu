@@ -27,4 +27,9 @@ public class Paragraph extends Element{
             System.out.println(text);
         }
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }
