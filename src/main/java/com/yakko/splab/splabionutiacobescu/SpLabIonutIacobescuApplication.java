@@ -21,7 +21,7 @@ public class SpLabIonutIacobescuApplication {
 
         Section sec1 = new Section("Yukito's View");
         sec1.add(new Image("Minakami_Yukito.png"));
-
+        sec1.add(new Paragraph("WOW"));
         Section subsec1 = new Section("Mundanity");
         subsec1.add(new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Right now I'm reading a rather difficult book called Critique of Pure-Reason by Immanuel Kant."));
         subsec1.add(new Paragraph("I don't feel one way or another about it."));
@@ -60,6 +60,11 @@ public class SpLabIonutIacobescuApplication {
         BookStatistics stats = new BookStatistics();
         b.accept(stats);
         stats.printStatistics();
+
+        GenerateToC gen = new GenerateToC();
+        b.accept(gen);
+        TableOfContents t = gen.getToC();
+        t.print();
     }
 
 }
