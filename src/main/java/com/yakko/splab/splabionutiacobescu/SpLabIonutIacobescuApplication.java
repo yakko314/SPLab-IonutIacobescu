@@ -1,70 +1,103 @@
 package com.yakko.splab.splabionutiacobescu;
 
 import com.yakko.splab.splabionutiacobescu.model.*;
+
+import com.yakko.splab.splabionutiacobescu.difexample.*;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class SpLabIonutIacobescuApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpLabIonutIacobescuApplication.class, args);
-        System.out.println("test");
+//        SpringApplication.run(SpLabIonutIacobescuApplication.class, args);
+//        System.out.println("test");
+//
+//        Author a1 = new Author("Sca", "Ji");
+////        a1.print();
+//        Author a2 = new Author("Moto", "Yon");
+//
+//        Book b = new Book("The End Sky");
+//        b.addAuthor(a1);
+//        b.addAuthor(a2);
+//
+//        Section sec1 = new Section("Yukito's View");
+//        sec1.add(new Image("Minakami_Yukito.png"));
+//
+//        Section subsec1 = new Section("Mundanity");
+//        subsec1.add(new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Right now I'm reading a rather difficult book called Critique of Pure-Reason by Immanuel Kant."));
+//        subsec1.add(new Paragraph("I don't feel one way or another about it."));
+//        Section subsec2 = new Section("Discontinuous");
+//        subsec2.add(new Paragraph("Mamiya, shut the hell up!"));
+//        sec1.add(subsec1);
+//        sec1.add(subsec2);
+//        b.addElement(sec1);
+//
+//        b.print();
+//
+//        Paragraph p1 = new Paragraph("YADYADYADYAYDAY");
+//        p1.setAlignStrategy(new AlignLeft());
+//        p1.print();
+//
+//        Paragraph p2 = new Paragraph("sdljgfnskdjgnkdsgjkdsg");
+//        p2.setAlignStrategy(new AlignRight());
+//        p2.print();
+//
+//        Paragraph p3 = new Paragraph("boom");
+//        p3.setAlignStrategy(new AlignCenter());
+//        p3.print();
+//
+//        Paragraph p4 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
+//        p4.setAlignStrategy(new AlignLeft());
+//        p4.print();
+//
+//        Paragraph p5 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
+//        p5.setAlignStrategy(new AlignRight());
+//        p5.print();
+//
+//        Paragraph p6 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
+//        p6.setAlignStrategy(new AlignCenter());
+//        p6.print();
+//
+//        BookStatistics stats = new BookStatistics();
+//        b.accept(stats);
+//        stats.printStatistics();
 
-        Author a1 = new Author("Sca", "Ji");
-//        a1.print();
-        Author a2 = new Author("Moto", "Yon");
-
-        Book b = new Book("The End Sky");
-        b.addAuthor(a1);
-        b.addAuthor(a2);
-
-        Section sec1 = new Section("Yukito's View");
-        sec1.add(new Image("Minakami_Yukito.png"));
-        sec1.add(new Paragraph("WOW"));
-        Section subsec1 = new Section("Mundanity");
-        subsec1.add(new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Right now I'm reading a rather difficult book called Critique of Pure-Reason by Immanuel Kant."));
-        subsec1.add(new Paragraph("I don't feel one way or another about it."));
-        Section subsec2 = new Section("Discontinuous");
-        subsec2.add(new Paragraph("Mamiya, shut the hell up!"));
-        sec1.add(subsec1);
-        sec1.add(subsec2);
-        b.addElement(sec1);
-
-        b.print();
-
-        Paragraph p1 = new Paragraph("YADYADYADYAYDAY");
-        p1.setAlignStrategy(new AlignLeft());
-        p1.print();
-
-        Paragraph p2 = new Paragraph("sdljgfnskdjgnkdsgjkdsg");
-        p2.setAlignStrategy(new AlignRight());
-        p2.print();
-
-        Paragraph p3 = new Paragraph("boom");
-        p3.setAlignStrategy(new AlignCenter());
-        p3.print();
-
-        Paragraph p4 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
-        p4.setAlignStrategy(new AlignLeft());
-        p4.print();
-
-        Paragraph p5 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
-        p5.setAlignStrategy(new AlignRight());
-        p5.print();
-
-        Paragraph p6 = new Paragraph("If there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. RigIf there's one thing I truly enjoy in life, it would be books. They get you away from reality and show you a new perspective. Rig");
-        p6.setAlignStrategy(new AlignCenter());
-        p6.print();
-
-        BookStatistics stats = new BookStatistics();
-        b.accept(stats);
-        stats.printStatistics();
-
-        GenerateToC gen = new GenerateToC();
-        b.accept(gen);
-        TableOfContents t = gen.getToC();
-        t.print();
+        //
+// Run the main function and inspect the output in console
+// to learn about the lifecycle of objects within the
+// Spring Dependency Injection Context
+//
+// Gets a handle of dependency injection context
+        ApplicationContext context =
+                SpringApplication.run(SpLabIonutIacobescuApplication.class, args);
+// Gets an instance of TransientComponent from the DI context
+        TransientComponent transientBean =
+                context.getBean(TransientComponent.class);
+        transientBean.operation();
+// Note that every time an instance is required,
+// the DI context creates a new one
+        transientBean = context.getBean(TransientComponent.class);
+        transientBean.operation();
+// Gets an instance of SingletonComponent from the DI context
+// Note that the unique instance was created while
+// application was loaded, before creating
+// the transient instances
+        SingletonComponent singletonBean =
+                context.getBean(SingletonComponent.class);
+        singletonBean.operation();
+// Note that every time an instance is required,
+// the DI returns the same unique one
+        singletonBean = context.getBean(SingletonComponent.class);
+        singletonBean.operation();
+// Gets an instance of another class that
+// requires singleton/transient components
+// Note where this instance was created and what beans
+// were used to initialize it
+        ClientComponent c = context.getBean(ClientComponent.class);
+        c.operation();
     }
 
 }
