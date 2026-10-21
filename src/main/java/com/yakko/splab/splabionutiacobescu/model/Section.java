@@ -26,6 +26,9 @@ public class Section extends Element {
         return elements.get(id);
     }
 
+    public String getTitle(){
+        return this.title;
+    }
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
