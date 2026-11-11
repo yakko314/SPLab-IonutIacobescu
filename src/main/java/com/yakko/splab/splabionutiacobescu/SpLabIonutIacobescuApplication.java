@@ -94,7 +94,7 @@ public class SpLabIonutIacobescuApplication {
         singletonBean.operation();
 // Gets an instance of another class that
 // requires singleton/transient components
-// Note where this instance was created and what beans
+// Note where this instance was created and whzat beans
 // were used to initialize it
         ClientComponent c = context.getBean(ClientComponent.class);
         c.operation();
