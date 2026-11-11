@@ -7,6 +7,9 @@ import com.yakko.splab.splabionutiacobescu.difexample.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class SpLabIonutIacobescuApplication {
@@ -98,6 +101,16 @@ public class SpLabIonutIacobescuApplication {
 // were used to initialize it
         ClientComponent c = context.getBean(ClientComponent.class);
         c.operation();
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
     }
 
 }

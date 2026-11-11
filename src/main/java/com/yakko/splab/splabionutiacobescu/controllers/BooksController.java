@@ -1,6 +1,7 @@
 package com.yakko.splab.splabionutiacobescu.controllers;
 
 import com.yakko.splab.splabionutiacobescu.model.Book;
+import com.yakko.splab.splabionutiacobescu.observer.AllBooksSubject;
 import com.yakko.splab.splabionutiacobescu.persistence.CrudRepository;
 import com.yakko.splab.splabionutiacobescu.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,18 @@ public class BooksController {
 
     private final CrudRepository<Book, Integer> booksRepository;
     private final CommandContext commandContext;
+    private final AllBooksSubject allBooksSubject;
 
     @Autowired
-    public BooksController(CrudRepository<Book, Integer> booksRepository, CommandContext commandContext) {
+    public BooksController(CrudRepository<Book, Integer> booksRepository, CommandContext commandContext, AllBooksSubject allBooksSubject) {
         this.booksRepository = booksRepository;
         this.commandContext = commandContext;
         this.commandContext.setBooksRepository(booksRepository);
+        this.allBooksSubject = allBooksSubject;
+    }
+
+    public BooksController(CrudRepository<Book, Integer> booksRepository, CommandContext commandContext) {
+        this(booksRepository, commandContext, null);
     }
 
     @GetMapping
@@ -45,7 +52,21 @@ public class BooksController {
             book = new Book();
         }
         Book created = new CreateBookCommand(book, commandContext).execute();
+        if (allBooksSubject != null) {
+            allBooksSubject.add(created);
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+
+    public String newBook(Book book) {
+        if (book == null) {
+            book = new Book();
+        }
+        Book created = new CreateBookCommand(book, commandContext).execute();
+        if (allBooksSubject != null) {
+            allBooksSubject.add(created);
+        }
+        return "Book saved [" + created.getId() + "] " + created.getTitle();
     }
 
     @PutMapping("/{id}")
