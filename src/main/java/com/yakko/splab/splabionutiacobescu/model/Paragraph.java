@@ -1,11 +1,30 @@
 package com.yakko.splab.splabionutiacobescu.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
+
+@Entity
 public class Paragraph extends Element{
+    @Column
     private String text;
+
+    @Transient
     private AlignStrategy textAlignment;
+
+    public Paragraph() {
+    }
 
     public Paragraph (String t) {
         this.text=t;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public void setAlignStrategy(AlignStrategy textAlignment) {
